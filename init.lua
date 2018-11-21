@@ -85,6 +85,7 @@ minetest.register_tool("late_demo:regeneration_ring", {
 	preview = "late_demo_ring_armor_preview",
 	effect_equip = {
 		impacts = { damage={ -1, 5 } },
+		hud = { icon = "late_demo_hud_ankh.png", label = "Regeneration" }
 	}
 })
 
@@ -147,6 +148,7 @@ minetest.register_node("late_demo:darkstone", {
 		groups = { vision=1 },
 		distance = 10, spread = 5,
 		impacts = { daylight = 0 },
+		hud = { label = "Dark area", icon = "late_demo_hud_darkness.png"}
 	},
 })
 
@@ -172,6 +174,8 @@ if late_demo.mods.extra and late_demo.mods.wielded_light then
 		effect_use_on = {
 			impacts = { texture = { colorize = '#00FF0060' }, illuminate = 10, nametag = { colorize="green"}  },
 			duration = 30, raise = 5, fall = 5,
+			hud = { color="green", label = "Tchernobilized" }
+
 		}
 	})
 	table.insert(stacks, 'late_demo:tchernostick')
@@ -186,6 +190,7 @@ minetest.register_craftitem("late_demo:poison", {
 		impacts = { damage = { 1, 1 } },
 		duration = 10,
 		stop_on_death = true,
+		hud = { icon = "late_demo_hud_skull.png", color="red", label = "Posion" }
 	},
 	on_use = late.on_use_tool_callback,
 })
